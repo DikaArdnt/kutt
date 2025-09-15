@@ -1,0 +1,69 @@
+<div class="content update-user">
+  <h2>Update user</h2>
+  <form
+    id="update-user-form"
+    hx-patch="/api/users/admin" 
+    hx-target="closest .content" 
+    hx-swap="outerHTML" 
+    hx-indicator="closest .content"
+  >
+    <input type="hidden" name="id" value="{{id}}" />
+    <label class="{{#if errors.email}}error{{/if}}">
+      Email address:
+      <input
+        name="email"
+        id="create-user-email"
+        type="email"
+        placeholder="Email address..."
+        hx-preserve="true"
+        value="{{email}}"
+        disabled
+      />
+      {{#if errors.email}}<p class="error">{{errors.email}}</p>{{/if}}
+    </label>
+    <label class="{{#if errors.password}}error{{/if}}">
+      Password:
+      <input
+        name="password"
+        id="update-user-password"
+        type="password"
+        placeholder="Password..."
+        hx-preserve="true"
+      />
+      {{#if errors.password}}<p class="error">{{errors.password}}</p>{{/if}}
+    </label>
+    <label class="{{#if errors.role}}error{{/if}}">
+      Role:
+      <select name="role" id="update-user-role" hx-preserve="true">
+        <option value="USER" {{#if (eq role ROLES.USER)}}selected{{/if}}>User</option>
+        <option value="ADMIN" {{#if (eq role ROLES.ADMIN)}}selected{{/if}}>Admin</option>
+        <option value="PREMIUM" {{#if (eq role ROLES.PREMIUM)}}selected{{/if}}>Premium</option>
+      </select>
+      {{#if errors.role}}<p class="error">{{errors.role}}</p>{{/if}}
+    </label>
+    <div class="checkbox-wrapper">
+      <label class="checkbox">
+        <input 
+          name="verified" 
+          type="checkbox"
+          hx-preserve="true"
+          {{#if verified}}checked{{/if}}
+        />
+        Verified
+      </label>
+    </div>
+    <div class="buttons">
+      <button type="button" hx-on:click="closeDialog()">Cancel</button>
+      <button type="submit" class="primary">
+        <span>{{> icons/new_user}}</span>
+        Update
+      </button>
+      {{> icons/spinner}}
+    </div>
+  </form>
+  <div id="dialog-error">
+    {{#if error}}
+      <p class="error">{{error}}</p>
+    {{/if}}
+  </div>
+</div>

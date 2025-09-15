@@ -1,0 +1,35 @@
+<p>Statictics Usage:</p>
+<table id='usage-table'>
+	<thead>
+		<tr>
+			<th class='links'>Links</th>
+			<th class='visits'>Tracked visits</th>
+			<th class='domains'>Domains</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class='links'>
+				<span class='usage-count green'>
+					{{links_count}}
+				</span>
+            &nbsp;/ 
+            ∞
+			</td>
+			<td class='visits'>
+				<span class='usage-count green'>
+					{{visits_count}}
+				</span>
+            &nbsp;/ 
+            ∞
+			</td>
+			<td class='domains'>
+				<span class='usage-count green'>
+					{{domains_count}}
+				</span>
+            &nbsp;/ 
+            {{#if (eq user.role 'USER')}}1{{else}}∞{{/if}}
+			</td>
+		</tr>
+	</tbody>
+</table>

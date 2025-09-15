@@ -1,0 +1,9 @@
+<button 
+  type="button" 
+  class="ghost"
+  hx-on:click="window.location.href = '/oauth/google'"
+  {{#if g_auth_enabled}}{{else}}disabled = "true"{{/if}}
+>
+  <span>{{> icons/google}}</span>
+  Continue with Google
+</button>

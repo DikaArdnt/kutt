@@ -1,0 +1,46 @@
+<html lang="en">
+	<head>
+		{{#each custom_meta}}
+			 <meta {{{this}}} />
+		{{/each}}
+
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="keywords" content="kualat, KuaLat, kua.lat Kua Lat, shorturl, short url, url shortener, free url shortener, hisoka labs, hisoka">
+		<link rel="icon" sizes="196x196" href="/images/favicon-196x196.png" />
+		<link rel="icon" sizes="32x32" href="/images/favicon-32x32.png" />
+		<link rel="icon" sizes="16x16" href="/images/favicon-16x16.png" />
+		<link rel="apple-touch-icon" href="/images/favicon-196x196.png" />
+		<link rel="mask-icon" href="/images/icon.svg" color="blue" />
+		<link rel="manifest" href="/manifest.webmanifest" />
+		<meta name="theme-color" content="#f3f3f3" />
+		<meta property="fb:app_id" content="654542416937429" />
+		<meta name="htmx-config" content='{"withCredentials":true}' />
+		<meta property="og:url" content="https://{{default_domain}}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="{{site_name}}" />
+		<meta property="og:image" content="https://{{default_domain}}/images/card.png" />
+		<meta property="og:description" content="Free URL shortener with analystics. Keep URLs Accurate, Lightweight, and Trustworthy" />
+		<meta name="twitter:url" content="https://{{default_domain}}" />
+		<meta name="twitter:title" content="{{site_name}}" />
+		<meta name="twitter:description" content="Free URL shortener with analystics. Keep URLs Accurate, Lightweight, and Trustworthy" />
+		<meta name="twitter:image" content="https://{{default_domain}}/images/card.png" />
+		<meta name="description" content="{{site_name}} is a free URL shortener with analystics. Keep URLs Accurate, Lightweight, and Trustworthy" />
+		<title>{{site_name}} | {{title}}</title>
+		<link rel="stylesheet" href="/css/styles.css" />
+		{{#each custom_styles}}
+			<link rel="stylesheet" href="/css/{{this}}" />
+		{{/each}}
+		{{{block "stylesheets"}}}
+	</head>
+	<body>
+		<div class="main-wrapper">
+			{{{body}}}
+		</div>
+
+		{{{block "scripts"}}}
+		<script src="/libs/htmx.min.js"></script>
+		<script src="/libs/qrcode.min.js"></script>
+		<script src="/scripts/main.js"></script>
+	</body>
+</html>
